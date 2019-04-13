@@ -1,0 +1,8 @@
+以ScalaWordCount为例：
+1、main方法，程序入口，业务逻辑放在main中
+2、打成jar包，上传到linux
+3、提交任务，spark-submit命令：
+./spark-submit --master spark://Node-1:7077 --class dtouding.spark.ScalaWordCount /bigdata/work/ScalaWordCount.jar hdfs://Node-1:9000/hdfs_test/wordcount_test.txt hdfs://Node-1:9000/hdfs_test/wordcount_result.txt
+4、结果文件（./hadoop fs -ls /hdfs_test/wordcount_result.txt），为什么有两个结果文件：
+/hdfs_test/wordcount_result.txt/part-00000
+/hdfs_test/wordcount_result.txt/part-00001
